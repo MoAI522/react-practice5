@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "local": "webpack-cli serve --mode development",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -s ./src/resources -p 6006"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",
