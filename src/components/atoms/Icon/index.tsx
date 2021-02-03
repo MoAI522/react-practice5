@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./style.scss";
+
 export const ICON = {
   TWITTER: "fab fa-twitter",
   HOME: "fas fa-home",
