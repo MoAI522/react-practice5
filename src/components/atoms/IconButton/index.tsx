@@ -8,8 +8,8 @@ import "./style.scss";
 export interface Props {
   icon: ICON;
   href: string;
-  logo: boolean;
-  primary: boolean;
+  logo?: boolean;
+  primary?: boolean;
 }
 const IconButton: React.FC<Props> = ({
   icon,
