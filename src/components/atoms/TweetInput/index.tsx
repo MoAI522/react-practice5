@@ -11,20 +11,21 @@ const TweetInput: React.FC = () => {
     const dummy = textarea?.previousElementSibling as HTMLElement;
     isDefined(dummy);
 
+    textarea.style.height = dummy.clientHeight + "px";
+
     textarea.addEventListener("input", () => {
       dummy.textContent = textarea.value + " ";
       textarea.style.height = dummy.clientHeight + "px";
-      console.log(`${textarea.clientHeight}, ${dummy.clientHeight}`);
     });
   }, []);
 
   return (
-    <div className="tweet-input">
+    <label className="tweet-input" htmlFor="tweet_text">
       <div className="wrapper">
         <div className="dummy-textarea"></div>
         <textarea id="tweet_text" placeholder="いまどうしてる？"></textarea>
       </div>
-    </div>
+    </label>
   );
 };
 export default TweetInput;

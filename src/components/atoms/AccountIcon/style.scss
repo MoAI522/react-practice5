@@ -2,14 +2,10 @@
 
 .account-icon {
   display: flex;
-  padding: 10px;
   border: none;
   outline: none;
-  width: 59px;
-  height: 59px;
+  padding: 0;
   border-radius: 50%;
-  background-color: $color-primary-hover-transparent;
-  transition-duration: 0.2s;
   cursor: pointer;
 
   & > img {
@@ -18,7 +14,25 @@
     border-radius: 50%;
   }
 
-  &:hover {
-    background-color: $color-primary-hover;
+  &.button-sidebar {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    background-color: $color-primary-hover-transparent;
+    transition-duration: 0.2s;
+
+    &:hover {
+      background-color: $color-primary-hover;
+    }
+  }
+
+  &.button-create-tweet {
+    width: 60px;
+    height: 60px;
+  }
+
+  &.button-tweet-list {
+    width: 50px;
+    height: 50px;
   }
 }

@@ -18,7 +18,11 @@ const Sidebar: React.FC = () => {
         <IconButton icon={ICON.USER} href="/profile/" />
         <IconButton icon={ICON.BARS} href="/other/" />
         <IconButton icon={ICON.PEN} href="/tweet/" primary={true} />
-        <AccountIcon />
+        <AccountIcon
+          type="sidebar"
+          src="./images/icon.jpg"
+          onClick={() => {}}
+        />
       </div>
     </aside>
   );

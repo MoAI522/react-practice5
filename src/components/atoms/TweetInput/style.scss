@@ -1,15 +1,17 @@
 @use "../../variables" as *;
 
 .tweet-input {
-  width: 100%;
   padding: 10px 0;
   border-bottom: 1px solid $color-light;
+  display: flex;
+  cursor: text;
 
   .wrapper {
     position: relative;
     max-height: $lineheight-l * 29;
     overflow-y: auto;
     padding-bottom: 5px;
+    width: 100%;
 
     .dummy-textarea {
       width: 100%;
