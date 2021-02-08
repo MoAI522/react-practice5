@@ -6,3 +6,22 @@ $color-light: #38444d;
 $color-medium: #253341;
 $color-dark: #192734;
 $color-background: #15202b;
+
+$fontfamily-sans: "Noto Sans JP", sans-serif;
+$fontfamily-serif: "Noto Serif JP", serif;
+
+$fontsize-m: 16px;
+$fontsize-l: 20px;
+
+$lineheight-m: 20px;
+$lineheight-l: 20px;
+
+@mixin text-m {
+  font-size: $fontsize-m;
+  line-height: $lineheight-m;
+}
+
+@mixin text-l {
+  font-size: $fontsize-l;
+  line-height: $lineheight-l;
+}

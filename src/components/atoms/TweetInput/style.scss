@@ -1,0 +1,40 @@
+@use "../../variables" as *;
+
+.tweet-input {
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid $color-light;
+
+  .wrapper {
+    position: relative;
+    max-height: $lineheight-l * 29;
+    overflow-y: auto;
+    padding-bottom: 5px;
+
+    .dummy-textarea {
+      width: 100%;
+      min-height: $lineheight-l;
+      @include text-l;
+      font-family: $fontfamily-sans;
+      word-break: break-all;
+      white-space: pre-wrap;
+      visibility: hidden;
+    }
+
+    & > textarea {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      resize: none;
+      overflow: hidden;
+      padding: 0;
+      @include text-l;
+      font-family: $fontfamily-sans;
+      color: $color-secondary;
+      border: none;
+      background: transparent;
+      outline: none;
+    }
+  }
+}
