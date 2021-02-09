@@ -3,12 +3,10 @@
 .create-tweet {
   display: flex;
   align-items: flex-start;
-  width: 100%;
-  border-right: 1px solid $color-light;
   border-bottom: 1px solid $color-light;
   padding: 10px;
 
-  .account-icon {
+  & > .account-icon {
     flex: 0 0 auto;
     margin-right: 16px;
   }
