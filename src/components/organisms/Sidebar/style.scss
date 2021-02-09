@@ -1,8 +1,11 @@
+@use "../../variables" as *;
+
 .sidebar {
   width: 180px;
-  height: 100%;
   overflow-y: auto;
   text-align: right;
+  border-right: 1px solid $color-light;
+  position: sticky;
 
   .inner {
     display: inline-flex;

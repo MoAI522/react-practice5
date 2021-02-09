@@ -1,8 +1,16 @@
 import React from "react";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
-import ExampleMolecules from "./components/molecules/ExampleMolecules";
+import "./style.scss";
 
-const Layout: React.FC = () => {
-  return <ExampleMolecules />;
+import Sidebar from "./components/organisms/Sidebar";
+
+const Layout: React.FC<RouteComponentProps> = ({ children, history }) => {
+  return (
+    <div className="layout">
+      <Sidebar />
+      {children}
+    </div>
+  );
 };
-export default Layout;
+export default withRouter(Layout);
