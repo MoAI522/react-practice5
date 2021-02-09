@@ -44,8 +44,8 @@ const Home: React.FC = () => {
       <CreateTweet />
       <div className="spacer"></div>
       <div className="tweet-list">
-        {tweets.map((value) => (
-          <TweetCell tweet={value} />
+        {tweets.map((tweet) => (
+          <TweetCell tweet={tweet} key={tweet.id} />
         ))}
       </div>
     </div>
