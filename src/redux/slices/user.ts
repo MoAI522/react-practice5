@@ -46,11 +46,11 @@ export const {
 
 export const fetchUser = async (dispatch: AppDispatch) => {
   dispatch(fetchUserStart());
-  await (() => new Promise((resolve) => setTimeout(() => resolve(0), 1000)))();
+  await (() => new Promise((resolve) => setTimeout(() => resolve(0), 5000)))();
   const dummyresult = {
     id: "aaaa",
     name: "test",
-    iconSrc: "./resources/images/icon.jpg",
+    iconSrc: "src/resources/images/icon.jpg",
     bio: "はろわ",
   };
   dispatch(fetchUserFulfilled(dummyresult));

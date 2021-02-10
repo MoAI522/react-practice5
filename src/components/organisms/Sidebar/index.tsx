@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import { ICON } from "../../atoms/Icon";
 import IconButton from "../../atoms/IconButton";
 import AccountIcon from "../../atoms/AccountIcon";
 
+import { fetchUser } from "../../../redux/slices/user";
+
 import "./style.scss";
 
 const Sidebar: React.FC = () => {
+  const user = useSelector((state) => state.user);
+  if (!user.fetching && !user.fetched) {
+    const dispatch = useDispatch();
+    dispatch(fetchUser);
+  }
+
   return (
     <aside className="sidebar">
       <div className="inner">
@@ -18,11 +27,7 @@ const Sidebar: React.FC = () => {
         <IconButton icon={ICON.USER} href="/profile/" />
         <IconButton icon={ICON.BARS} href="/other/" />
         <IconButton icon={ICON.PEN} href="/tweet/" primary={true} />
-        <AccountIcon
-          type="sidebar"
-          src="./images/icon.jpg"
-          onClick={() => {}}
-        />
+        <AccountIcon type="sidebar" user={user.me} onClick={() => {}} />
       </div>
     </aside>
   );

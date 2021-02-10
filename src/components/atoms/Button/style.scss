@@ -12,10 +12,15 @@
   cursor: pointer;
   color: $color-primary;
   font-size: $fontsize-m;
-  line-height: $fontsize-m;
+  line-height: $lineheight-m;
   font-family: $fontfamily-sans;
   font-weight: 700;
   white-space: nowrap;
+
+  & > span {
+    display: block;
+    height: $fontsize-m;
+  }
 
   &:hover {
     background-color: $color-primary-hover;

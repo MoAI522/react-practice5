@@ -12,11 +12,7 @@ export interface Props {
 const TweetCell: React.FC<Props> = ({ tweet }) => {
   return (
     <div className="tweet-cell">
-      <AccountIcon
-        type="tweet-list"
-        src={tweet.user.iconSrc}
-        onClick={() => {}}
-      />
+      <AccountIcon type="tweet-list" user={tweet.user} onClick={() => {}} />
       <div className="wrapper">
         <div className="tweet-status">
           <span className="user-name">{tweet.user.name}</span>
