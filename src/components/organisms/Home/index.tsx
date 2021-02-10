@@ -1,10 +1,10 @@
 import React from "react";
+import styled from "styled-components";
 import { Tweet } from "../../../interfaces";
+import STYLEVARS from "../../../style_vars";
 
 import CreateTweet from "../../molecules/CreateTweet";
 import TweetCell from "../../molecules/TweetCell";
-
-import "./style.scss";
 
 const Home: React.FC = () => {
   let tweets: Array<Tweet> = [
@@ -39,16 +39,41 @@ const Home: React.FC = () => {
   ];
 
   return (
-    <div className="home">
-      <div className="home-header">ホーム</div>
+    <StyledWrapper>
+      <StyledHeader>ホーム</StyledHeader>
       <CreateTweet />
-      <div className="spacer"></div>
-      <div className="tweet-list">
+      <StyledSpacer className="spacer"></StyledSpacer>
+      <div>
         {tweets.map((tweet) => (
           <TweetCell tweet={tweet} key={tweet.id} />
         ))}
       </div>
-    </div>
+    </StyledWrapper>
   );
 };
 export default Home;
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-right: 1px solid ${STYLEVARS.COLOR.LIGHT};
+`;
+
+const StyledHeader = styled.div`
+  position: sticky;
+  top: 0;
+  padding: 16px 10px;
+  color: ${STYLEVARS.COLOR.SECONDARY};
+  ${STYLEVARS.TEXT.L}
+  font-weight: 700;
+  border-bottom: 1px solid ${STYLEVARS.COLOR.LIGHT};
+  background-color: ${STYLEVARS.COLOR.BACKGROUND};
+  z-index: 1;
+`;
+
+const StyledSpacer = styled.div`
+  background-color: ${STYLEVARS.COLOR.DARK};
+  border-bottom: 1px solid ${STYLEVARS.COLOR.LIGHT};
+  height: 16px;
+`;

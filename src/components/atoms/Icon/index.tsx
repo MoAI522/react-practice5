@@ -1,6 +1,5 @@
 import React from "react";
-
-import "./style.scss";
+import styled from "styled-components";
 
 export const ICON = {
   TWITTER: "fab fa-twitter",
@@ -23,6 +22,12 @@ export interface Props {
   icon: ICON;
 }
 const Icon: React.FC<Props> = ({ icon }) => {
-  return <i className={"icon " + icon}></i>;
+  return <StyledI className={icon}></StyledI>;
 };
 export default Icon;
+
+const StyledI = styled.i`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+`;

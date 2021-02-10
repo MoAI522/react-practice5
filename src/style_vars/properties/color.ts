@@ -1,0 +1,18 @@
+const COLOR = {
+  PRIMARY: "rgba(29, 161, 242, 1)",
+  PRIMARY_HOVER: "rgba(22, 45, 64, 1)",
+  PRIMARY_HOVER_TRANSPARENT: "rgba(22, 45, 64, 0)",
+  SECONDARY: "#FFFFFF",
+  LIGHT: "#38444D",
+  MEDIUM: "#253341",
+  DARK: "#192734",
+  BACKGROUND: "#15202B",
+  RETWEET: "#189D58",
+  RETWEET_HOVER: "rgba(27, 54, 55, 1)",
+  RETWEET_HOVER_TRANSPARENT: "rgba(27, 54, 55, 0)",
+  FAVORITE: "#E0245E",
+  FAVORITE_HOVER: "rgba(48, 39, 55, 1)",
+  FAVORITE_HOVER_TRANSPARENT: "rgba(48, 39, 55, 0)",
+};
+type COLOR = typeof COLOR[keyof typeof COLOR];
+export default COLOR;

@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
+
+import STYLEVARS from "../../../style_vars";
 
 import { ICON } from "../../atoms/Icon";
 import IconButton from "../../atoms/IconButton";
 import AccountIcon from "../../atoms/AccountIcon";
 
 import { fetchUser } from "../../../redux/slices/user";
-
-import "./style.scss";
 
 const Sidebar: React.FC = () => {
   const user = useSelector((state) => state.user);
@@ -17,8 +18,8 @@ const Sidebar: React.FC = () => {
   }
 
   return (
-    <aside className="sidebar">
-      <div className="inner">
+    <StyledAside>
+      <StyledWrapper>
         <IconButton icon={ICON.TWITTER} href="/home/" logo={true} />
         <IconButton icon={ICON.HOME} href="/home/" />
         <IconButton icon={ICON.HASHTAG} href="/search/" />
@@ -28,8 +29,28 @@ const Sidebar: React.FC = () => {
         <IconButton icon={ICON.BARS} href="/other/" />
         <IconButton icon={ICON.PEN} href="/tweet/" primary={true} />
         <AccountIcon type="sidebar" user={user.me} onClick={() => {}} />
-      </div>
-    </aside>
+      </StyledWrapper>
+    </StyledAside>
   );
 };
 export default Sidebar;
+
+const StyledAside = styled.aside`
+  width: 180px;
+  overflow-y: auto;
+  text-align: right;
+  border-right: 1px solid ${STYLEVARS.COLOR.LIGHT};
+  position: sticky;
+`;
+
+const StyledWrapper = styled.div`
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 10px;
+
+  & > *:not(:first-child) {
+    margin-top: 10px;
+  }
+`;

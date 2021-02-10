@@ -1,11 +1,14 @@
 import React from "react";
-
-import "./style.scss";
+import styled from "styled-components";
 
 export interface Props {
   text: string;
 }
 const ExampleAtom: React.FC<Props> = ({ text }) => {
-  return <h1 className="example-atom">{text}</h1>;
+  return <StyledH1 className="example-atom">{text}</StyledH1>;
 };
 export default ExampleAtom;
+
+const StyledH1 = styled.h1`
+  color: red;
+`;

@@ -1,14 +1,20 @@
 import React from "react";
+import styled from "styled-components";
 
 import ExampleAtom from "../../atoms/ExampleAtom";
-import "./style.scss";
 
 const ExampleMolecule: React.FC = () => {
   return (
-    <div className="example-molecule">
+    <StyledWrapper>
       <ExampleAtom text="test" />
       <ExampleAtom text="component" />
-    </div>
+    </StyledWrapper>
   );
 };
 export default ExampleMolecule;
+
+const StyledWrapper = styled.div`
+  padding: 40px;
+  background-color: gray;
+  display: inline-block;
+`;

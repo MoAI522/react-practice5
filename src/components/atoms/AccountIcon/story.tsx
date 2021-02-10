@@ -11,7 +11,12 @@ export default {
 } as Meta;
 
 const commonArgs = {
-  src: "./images/icon.jpg",
+  user: {
+    id: "",
+    name: "",
+    iconSrc: "./images/icon.jpg",
+    bio: "",
+  },
   onClick: () => console.log("clicked"),
 };
 
