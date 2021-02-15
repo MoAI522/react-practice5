@@ -4,7 +4,9 @@
   "main": "index.js",
   "author": "MoAI <urotanre522@gmail.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
+    "postinstall": "husky install",
     "local": "webpack-cli serve --mode development",
     "storybook": "start-storybook -s ./src/resources -p 6006"
   },
