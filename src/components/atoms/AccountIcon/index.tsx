@@ -4,7 +4,8 @@ import { User } from "../../../interfaces";
 import STYLEVARS from "../../../style_vars";
 
 export interface Props {
-  type: "sidebar" | "create-tweet" | "tweet-list";user: User
+  type: "sidebar" | "create-tweet" | "tweet-list";
+  user: User;
   onClick: () => void;
 }
 const AccountIcon: React.FC<Props> = ({ type, user, onClick }) => {
