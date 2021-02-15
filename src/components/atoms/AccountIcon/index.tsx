@@ -9,6 +9,7 @@ export interface Props {
   onClick: () => void;
 }
 const AccountIcon: React.FC<Props> = ({ type, user, onClick }) => {
+  console.log("db");
   switch (type) {
     case "sidebar":
       return (
