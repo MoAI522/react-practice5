@@ -14,7 +14,13 @@ const TweetCell: React.FC<Props> = ({ tweet }) => {
   return (
     <StyledWrapper>
       <StyledAccountIconWrapper>
-        <AccountIcon type="tweet-list" user={tweet.user} onClick={() => {}} />
+        <AccountIcon
+          type="tweet-list"
+          user={tweet.user}
+          onClick={() => {
+            console.log("clicked");
+          }}
+        />
       </StyledAccountIconWrapper>
       <StyledRightsideWrapper>
         <StyledStatusWrapper>
@@ -27,17 +33,23 @@ const TweetCell: React.FC<Props> = ({ tweet }) => {
           <ReactionButton
             type="reply"
             value={tweet.replies.length}
-            onClick={() => {}}
+            onClick={() => {
+              console.log("clicked");
+            }}
           />
           <ReactionButton
             type="retweet"
             value={tweet.retweets.length}
-            onClick={() => {}}
+            onClick={() => {
+              console.log("clicked");
+            }}
           />
           <ReactionButton
             type="favorite"
             value={tweet.favorites.length}
-            onClick={() => {}}
+            onClick={() => {
+              console.log("clicked");
+            }}
           />
         </StyledReactionButtonsWrapper>
       </StyledRightsideWrapper>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 
@@ -28,7 +28,13 @@ const Sidebar: React.FC = () => {
         <IconButton icon={ICON.USER} href="/profile/" />
         <IconButton icon={ICON.BARS} href="/other/" />
         <IconButton icon={ICON.PEN} href="/tweet/" primary={true} />
-        <AccountIcon type="sidebar" user={user.me} onClick={() => {}} />
+        <AccountIcon
+          type="sidebar"
+          user={user.me}
+          onClick={() => {
+            console.log("clicked");
+          }}
+        />
       </StyledWrapper>
     </StyledAside>
   );

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { NoEmitOnErrorsPlugin, ProgressPlugin } from "webpack";
 
 import STYLEVARS from "../../../style_vars";
 

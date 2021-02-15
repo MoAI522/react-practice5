@@ -44,7 +44,9 @@ export const {
   fetchUserRejected,
 } = slice.actions;
 
-export const fetchUser = async (dispatch: AppDispatch) => {
+export const fetchUser: (dispatch: AppDispatch) => Promise<void> = async (
+  dispatch: AppDispatch
+) => {
   dispatch(fetchUserStart());
   await (() => new Promise((resolve) => setTimeout(() => resolve(0), 5000)))();
   const dummyresult = {

@@ -7,7 +7,7 @@ import CreateTweet from "../../molecules/CreateTweet";
 import TweetCell from "../../molecules/TweetCell";
 
 const Home: React.FC = () => {
-  let tweets: Array<Tweet> = [
+  const tweets: Array<Tweet> = [
     {
       id: 0,
       user: {

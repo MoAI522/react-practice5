@@ -44,7 +44,9 @@ export const {
   fetchTweetsRejected,
 } = slice.actions;
 
-export const fetchTweets = () => async (dispatch: AppDispatch) => {
+export const fetchTweets: () => (
+  dispatch: AppDispatch
+) => Promise<void> = () => async (dispatch: AppDispatch) => {
   dispatch(fetchTweetsStart());
   await (() => new Promise((resolve) => setTimeout(() => resolve(0), 1000)))();
   const dummyresult: Array<Tweet> = [

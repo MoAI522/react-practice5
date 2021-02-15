@@ -8,7 +8,6 @@ import styled from "styled-components";
 import STYLEVARS from "../../../style_vars";
 
 const CreateTweet: React.FC = () => {
-  const jumpToAccountPage = () => {};
   const user = useSelector((state) => state.user);
 
   return (
@@ -17,7 +16,9 @@ const CreateTweet: React.FC = () => {
         <AccountIcon
           type="create-tweet"
           user={user.me}
-          onClick={jumpToAccountPage}
+          onClick={() => {
+            console.log("clicked");
+          }}
         />
       </StyledAccountIconWrapper>
       <StyledFormsWrapper>
@@ -26,7 +27,9 @@ const CreateTweet: React.FC = () => {
           <div></div>
           <Button
             text="ツイートする"
-            onClick={() => {}}
+            onClick={() => {
+              console.log("clicked");
+            }}
             size="m"
             isPrimary={true}
           />

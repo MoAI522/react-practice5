@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
 import Sidebar from "./components/organisms/Sidebar";
 import styled from "styled-components";
 
-const Layout: React.FC<RouteComponentProps> = ({ children, history }) => {
+const Layout: React.FC<RouteComponentProps> = ({ children }) => {
   return (
     <StyledWrapper>
       <StyledSidebarContainer>

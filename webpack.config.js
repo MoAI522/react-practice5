@@ -1,6 +1,7 @@
 const debug = process.env.NODE_ENV !== "production";
 const webpack = require("webpack");
 const path = require("path");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 const devPath = path.resolve(__dirname, "src");
 
@@ -23,15 +24,21 @@ module.exports = {
     path: devPath,
     filename: "bundle.js",
   },
-  plugins: debug
-    ? []
-    : [
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-          mangle: false,
-          sourcemap: false,
-        }),
-      ],
+  plugins: [
+    new ESLintPlugin({
+      extensions: ["ts", "tsx"],
+    })
+  ].concat(
+    debug
+      ? []
+      : [
+          new webpack.optimize.OccurrenceOrderPlugin(),
+          new webpack.optimize.UglifyJsPlugin({
+            mangle: false,
+            sourcemap: false,
+          }),
+        ]
+  ),
   devtool: "source-map",
   devServer: {
     contentBase: devPath,
