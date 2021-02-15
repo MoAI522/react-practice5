@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Story, Meta } from "@storybook/react/types-6-0";
 
-import { ICON } from "../Icon";
 import ReactionButton, { Props } from "./index";
 
 const Template: Story<Props> = (props) => <ReactionButton {...props} />;
