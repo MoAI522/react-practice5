@@ -1,9 +1,9 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
 
-import TweetInput from "./index";
+import TweetInput, { Props } from "./index";
 
-const Template: Story = (props) => <TweetInput {...props} />;
+const Template: Story<Props> = (props) => <TweetInput {...props} />;
 
 export default {
   title: "Atoms/TweetInput",

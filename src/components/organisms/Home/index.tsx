@@ -1,53 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { Tweet } from "../../../interfaces";
+import useTimeline from "../../../hooks/timeline";
 import STYLEVARS from "../../../style_vars";
 
 import CreateTweet from "../../molecules/CreateTweet";
 import TweetCell from "../../molecules/TweetCell";
 
 const Home: React.FC = () => {
-  const tweets: Array<Tweet> = [
-    {
-      id: 0,
-      user: {
-        id: "aaaa",
-        name: "test",
-        iconSrc: "./images/icon.jpg",
-        bio: "",
-      },
-      date: new Date(2021, 2, 9, 12, 0, 0),
-      text: "テキストテキスト",
-      replies: [],
-      retweets: [],
-      favorites: [],
-    },
-    {
-      id: 1,
-      user: {
-        id: "aaaa",
-        name: "test",
-        iconSrc: "./images/icon.jpg",
-        bio: "",
-      },
-      date: new Date(2021, 2, 9, 12, 0, 0),
-      text: "テキストテキストテキ",
-      replies: [],
-      retweets: [],
-      favorites: [],
-    },
-  ];
+  const { timeline, fetchTimeline } = useTimeline();
+  useEffect(() => {
+    fetchTimeline();
+    setInterval(fetchTimeline, 10000);
+  }, []);
+
+  let tweetCells;
+  if (timeline.length)
+    tweetCells = timeline.map((status) => (
+      <TweetCell tweet={status} key={status.id} />
+    ));
+  else tweetCells = <p>ツイートはありません</p>;
 
   return (
     <StyledWrapper>
       <StyledHeader>ホーム</StyledHeader>
-      <CreateTweet />
+      <CreateTweet fetchTimeline={fetchTimeline} />
       <StyledSpacer className="spacer"></StyledSpacer>
-      <div>
-        {tweets.map((tweet) => (
-          <TweetCell tweet={tweet} key={tweet.id} />
-        ))}
-      </div>
+      <div>{tweetCells}</div>
     </StyledWrapper>
   );
 };

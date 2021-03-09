@@ -1,31 +1,31 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { isDefined } from "../../../common";
 import STYLEVARS from "../../../style_vars";
 
-const TweetInput: React.FC = () => {
+export interface Props {
+  content: string;
+  setContent: React.Dispatch<React.SetStateAction<string>>;
+}
+const TweetInput: React.FC<Props> = ({ content, setContent }) => {
   useEffect(() => {
     const textarea = document.getElementById(
-      "tweet_text"
+      "create_tweet_textarea"
     ) as HTMLTextAreaElement;
-    const dummy = textarea?.previousElementSibling as HTMLElement;
-    isDefined(dummy);
-
+    const dummy = document.getElementById("create_tweet_dummy_textarea");
+    if (textarea === null || dummy === null) return;
+    dummy.textContent = textarea.value + " ";
     textarea.style.height = dummy.clientHeight + "px";
-
-    textarea.addEventListener("input", () => {
-      dummy.textContent = textarea.value + " ";
-      textarea.style.height = dummy.clientHeight + "px";
-    });
-  }, []);
+  });
 
   return (
     <StyledLabel htmlFor="tweet_text">
       <StyledWrapper>
-        <StyledDummyTextarea></StyledDummyTextarea>
+        <StyledDummyTextarea id="create_tweet_dummy_textarea"></StyledDummyTextarea>
         <StyledTextarea
-          id="tweet_text"
-          placeholder="いまどうしてる？"
+          id="create_tweet_textarea"
+          placeholder="いまなにしてる？"
+          onChange={(e) => setContent(e.target.value)}
+          value={content}
         ></StyledTextarea>
       </StyledWrapper>
     </StyledLabel>

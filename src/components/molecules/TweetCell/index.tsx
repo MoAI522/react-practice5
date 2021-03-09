@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Tweet } from "../../../interfaces";
+import TStatus from "../../../interfaces/status";
 import STYLEVARS from "../../../style_vars";
 
 import AccountIcon from "../../atoms/AccountIcon";
 import ReactionButton from "../../atoms/ReactionButton";
 
 export interface Props {
-  tweet: Tweet;
+  tweet: TStatus;
 }
 const TweetCell: React.FC<Props> = ({ tweet }) => {
   return (
@@ -16,7 +16,7 @@ const TweetCell: React.FC<Props> = ({ tweet }) => {
       <StyledAccountIconWrapper>
         <AccountIcon
           type="tweet-list"
-          user={tweet.user}
+          account={tweet.account}
           onClick={() => {
             console.log("clicked");
           }}
@@ -24,29 +24,29 @@ const TweetCell: React.FC<Props> = ({ tweet }) => {
       </StyledAccountIconWrapper>
       <StyledRightsideWrapper>
         <StyledStatusWrapper>
-          <StyledUserName>{tweet.user.name}</StyledUserName>
-          <StyledUserId>@{tweet.user.id}</StyledUserId>・
-          <span>{tweet.date.toDateString()}</span>
+          <StyledUserName>{tweet.account.display_name}</StyledUserName>
+          <StyledUserId>@{tweet.account.username}</StyledUserId>・
+          <span>{tweet.created_at}</span>
         </StyledStatusWrapper>
-        <StyledContent>{tweet.text}</StyledContent>
+        <StyledContent dangerouslySetInnerHTML={{ __html: tweet.content }} />
         <StyledReactionButtonsWrapper>
           <ReactionButton
             type="reply"
-            value={tweet.replies.length}
+            value={tweet.replies_count}
             onClick={() => {
               console.log("clicked");
             }}
           />
           <ReactionButton
             type="retweet"
-            value={tweet.retweets.length}
+            value={tweet.reblogs_count}
             onClick={() => {
               console.log("clicked");
             }}
           />
           <ReactionButton
             type="favorite"
-            value={tweet.favorites.length}
+            value={tweet.favourites_count}
             onClick={() => {
               console.log("clicked");
             }}

@@ -1,31 +1,33 @@
 import React from "react";
 import styled from "styled-components";
-import { User } from "../../../interfaces";
+import TAccount from "../../../interfaces/account";
 import STYLEVARS from "../../../style_vars";
 
 export interface Props {
   type: "sidebar" | "create-tweet" | "tweet-list";
-  user: User;
+  account: TAccount;
   onClick: () => void;
 }
-const AccountIcon: React.FC<Props> = ({ type, user, onClick }) => {
+const AccountIcon: React.FC<Props> = ({ type, account, onClick }) => {
+  const imageSource = account !== null ? account.avatar : "";
+
   switch (type) {
     case "sidebar":
       return (
         <StyledSidebarIcon onClick={onClick}>
-          <StyledImg src={user.iconSrc} />
+          <StyledImg src={imageSource} />
         </StyledSidebarIcon>
       );
     case "create-tweet":
       return (
         <StyledCreateTweetIcon onClick={onClick}>
-          <StyledImg src={user.iconSrc} />
+          <StyledImg src={imageSource} />
         </StyledCreateTweetIcon>
       );
     case "tweet-list":
       return (
         <StyledTweetListIcon onClick={onClick}>
-          <StyledImg src={user.iconSrc} />
+          <StyledImg src={imageSource} />
         </StyledTweetListIcon>
       );
   }

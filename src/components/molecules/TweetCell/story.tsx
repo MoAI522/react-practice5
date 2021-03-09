@@ -13,17 +13,17 @@ export default {
 export const Default = Template.bind({});
 Default.args = {
   tweet: {
-    id: 0,
-    user: {
-      id: "aaaa",
-      name: "test",
-      iconSrc: "./images/icon.jpg",
-      bio: "",
+    id: "0",
+    account: {
+      id: "0",
+      username: "test",
+      display_name: "test",
+      avatar: "./images/icon.jpg",
     },
-    date: new Date(2021, 2, 9, 12, 0, 0),
-    text: "テキストテキスト",
-    replies: [],
-    retweets: [],
-    favorites: [],
+    created_at: "2021-03-09T04:31:00",
+    content: "テキストテキスト",
+    replies_count: 0,
+    reblogs_count: 0,
+    favourites_count: 0,
   },
 };

@@ -1,34 +1,42 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 
 import AccountIcon from "../../atoms/AccountIcon";
 import TweetInput from "../../atoms/TweetInput";
 import Button from "../../atoms/Button";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 import STYLEVARS from "../../../style_vars";
+import { OwnAccountContext } from "../../../contexts/own_account";
+import useCreateStatus from "../../../hooks/create_status";
 
-const CreateTweet: React.FC = () => {
-  const user = useSelector((state) => state.user);
+export interface Props {
+  fetchTimeline: () => Promise<void>;
+}
+const CreateTweet: React.FC<Props> = ({ fetchTimeline }) => {
+  const ownAccount = useContext(OwnAccountContext);
+  const createStatus = useCreateStatus();
+  const [content, setContent] = useState<string>("");
 
   return (
     <StyledWrapper>
       <StyledAccountIconWrapper>
         <AccountIcon
           type="create-tweet"
-          user={user.me}
+          account={ownAccount}
           onClick={() => {
             console.log("clicked");
           }}
         />
       </StyledAccountIconWrapper>
       <StyledFormsWrapper>
-        <TweetInput />
+        <TweetInput content={content} setContent={setContent} />
         <StyledButtonsWrapper>
           <div></div>
           <Button
             text="ツイートする"
-            onClick={() => {
-              console.log("clicked");
+            onClick={async () => {
+              await createStatus(content, "private");
+              setContent("");
+              fetchTimeline();
             }}
             size="m"
             isPrimary={true}

@@ -1,5 +1,4 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
 import STYLEVARS from "../../../style_vars";
@@ -7,15 +6,10 @@ import STYLEVARS from "../../../style_vars";
 import { ICON } from "../../atoms/Icon";
 import IconButton from "../../atoms/IconButton";
 import AccountIcon from "../../atoms/AccountIcon";
-
-import { fetchUser } from "../../../redux/slices/user";
+import { OwnAccountContext } from "../../../contexts/own_account";
 
 const Sidebar: React.FC = () => {
-  const user = useSelector((state) => state.user);
-  if (!user.fetching && !user.fetched) {
-    const dispatch = useDispatch();
-    dispatch(fetchUser);
-  }
+  const ownAccount = useContext(OwnAccountContext);
 
   return (
     <StyledAside>
@@ -30,7 +24,7 @@ const Sidebar: React.FC = () => {
         <IconButton icon={ICON.PEN} href="/tweet/" primary={true} />
         <AccountIcon
           type="sidebar"
-          user={user.me}
+          account={ownAccount}
           onClick={() => {
             console.log("clicked");
           }}

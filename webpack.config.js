@@ -1,7 +1,8 @@
-const debug = process.env.NODE_ENV !== "production";
-const webpack = require("webpack");
-const path = require("path");
-const ESLintPlugin = require("eslint-webpack-plugin");
+const debug = true;
+import webpack from "webpack";
+import path from "path";
+import ESLintPlugin from "eslint-webpack-plugin";
+import Dotenv from "dotenv-webpack";
 
 const devPath = path.resolve(__dirname, "src");
 
@@ -27,7 +28,11 @@ module.exports = {
   plugins: [
     new ESLintPlugin({
       extensions: ["ts", "tsx"],
-    })
+    }),
+    new Dotenv({
+      path: "./.env",
+      safe: false,
+    }),
   ].concat(
     debug
       ? []
