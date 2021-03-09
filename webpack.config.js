@@ -1,8 +1,8 @@
 const debug = true;
-import webpack from "webpack";
-import path from "path";
-import ESLintPlugin from "eslint-webpack-plugin";
-import Dotenv from "dotenv-webpack";
+const webpack = require("webpack");
+const path = require("path");
+const ESLintPlugin = require("eslint-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 const devPath = path.resolve(__dirname, "src");
 
